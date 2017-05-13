@@ -1,7 +1,7 @@
 /**
  * Package for calculate task.
  *
- * @author Nikita Zenkin (mailto:nji1@mail.ru)
+ * @author Petr Arsentev (mailto:parsentev@yandex.ru)
  * @version $Id$
  * @since 0.1
 */

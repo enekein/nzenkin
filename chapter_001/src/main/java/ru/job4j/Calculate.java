@@ -11,8 +11,8 @@ class Calculate {
 /**
  * Output string to console.
  * @param arg - arg.
-
+*/
     public static void main(String[] arg){
-        System.out.println("Hello world!");
+        System.out.println("Hello World");
     }
 }
