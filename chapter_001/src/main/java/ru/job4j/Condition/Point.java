@@ -3,7 +3,7 @@ package ru.job4j.condition;
  /**
   *@author Nikita Zenkin.
   *@since 19.05.2017.
-  *@version 1.
+  *@version 1.1.
  */
 
 public class Point {
@@ -57,6 +57,6 @@ public class Point {
   */
 
   public boolean is(int a, int b) {
-	  return (a * getX() + b) == getY();
+	  return (a * this.x + b) == this.y;
   }
 }
