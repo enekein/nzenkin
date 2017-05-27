@@ -6,4 +6,4 @@
  * @since 0.1
 */
 
-package ru.job4j.calculator;
+package ru.job4j.Сalculator;

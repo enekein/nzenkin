@@ -1,4 +1,4 @@
-package ru.job4j.calculator;
+package ru.job4j.Calculator;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;

@@ -1,4 +1,4 @@
-package ru.job4j.max;
+package ru.job4j.Max;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
