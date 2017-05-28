@@ -47,4 +47,40 @@ public class MaxTest {
 		int expected = 1;
 		assertThat(result, is(expected));
 	}
+
+	/**
+	* Test method max when first int greater others.
+	*/
+
+	@Test
+	public void whenFirstIntGreaterSecondIntAndThirdIntThenReturnFirstInt() {
+		Max maximum = new Max();
+		int result = maximum.max(3, 1, 2);
+		int expected = 3;
+		assertThat(result, is(expected));
+	}
+
+	/**
+	* Test method max when second int greater others.
+	*/
+
+	@Test
+	public void whenSecondIntGreaterFirstIntAndThirdIntThenReturnSecondInt() {
+		Max maximum = new Max();
+		int result = maximum.max(1, 3, 2);
+		int expected = 3;
+		assertThat(result, is(expected));
+	}
+
+	/**
+	* Test method max when third int greater others.
+	*/
+
+	@Test
+	public void whenThirdIntGreaterFirstIntAndSecondIntThenReturnThirdInt() {
+		Max maximum = new Max();
+		int result = maximum.max(1, 2, 3);
+		int expected = 3;
+		assertThat(result, is(expected));
+	}
 }
