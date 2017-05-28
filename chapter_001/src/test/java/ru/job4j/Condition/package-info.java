@@ -6,4 +6,4 @@
  * @since 19.05.2017
 */
 
-package ru.job4j.Condition;
+package ru.job4j.condition;

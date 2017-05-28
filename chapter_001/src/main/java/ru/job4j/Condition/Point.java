@@ -1,4 +1,4 @@
-package ru.job4j.Condition;
+package ru.job4j.condition;
 
  /**
   *@author Nikita Zenkin.

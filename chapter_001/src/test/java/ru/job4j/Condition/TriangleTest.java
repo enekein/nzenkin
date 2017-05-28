@@ -1,4 +1,4 @@
-package ru.job4j.Condition;
+package ru.job4j.condition;
 
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import org.junit.Test;

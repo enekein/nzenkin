@@ -1,4 +1,4 @@
-package ru.job4j.Condition;
+package ru.job4j.condition;
 
  /**
   *@author Nikita Zenkin.
@@ -62,7 +62,7 @@ public class Triangle {
 	double sideBC = calculateSideLength(b, c);
 	double sideAC = calculateSideLength(a, c);
 	//check for triangle existing.
-	if ((sideAB + sideBC < sideAC) || (sideAC + sideAB < sideBC) || (sideBC + sideAC < sideAB)) {
+	if ((sideAB + sideBC <= sideAC) || (sideAC + sideAB <= sideBC) || (sideBC + sideAC <= sideAB)) {
 		return -1D;
 	}
 	//calculate half-perimeter

@@ -1,4 +1,4 @@
-package ru.job4j.Max;
+package ru.job4j.max;
 
 /**
  *@author Nikita Zenkin.
