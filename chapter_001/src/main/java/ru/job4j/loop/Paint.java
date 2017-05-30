@@ -14,14 +14,12 @@ public class Paint {
 	 public String pyramid(int h) {
 		 StringBuilder s = new StringBuilder();
 		 for (int i = 0; i < h; i++) {
-			 for (int j = 0; j < h - i - 1; j++) {
-				 s.append(" ");
-			 }
-			 for (int j = h - i - 1; j < h + i; j++) {
-				 s.append("^");
-			 }
-			 for (int j = 0; j < h - i - 1; j++) {
-				 s.append(" ");
+			 for (int j = 0; j < (2 * h) - 1; j++) {
+				 if ((j >= h - i - 1) && (j < h + i)) {
+					 s.append("^");
+				 } else {
+					 s.append(" ");
+				 }
 			 }
 			 s.append(System.getProperty("line.separator"));
 		 }
