@@ -18,7 +18,7 @@ public class FinalTest {
     @Test
 	public void whenStringContainsSubStringThenTrue() {
 		Final finalTask = new Final();
-		boolean result = finalTask.contains("That is my final task for first chapter", "task for");
+		boolean result = finalTask.contains("момоко", "моко");
 		boolean expected = true;
 		assertThat(result, is(expected));
 	}
@@ -29,7 +29,7 @@ public class FinalTest {
     @Test
 	public void whenStringIsNotContainsSubStringThenFalse() {
 		Final finalTask = new Final();
-		boolean result = finalTask.contains("That is my final task for first chapter", "task foe");
+		boolean result = finalTask.contains("момоко", "моо");
 		boolean expected = false;
 		assertThat(result, is(expected));
 	}

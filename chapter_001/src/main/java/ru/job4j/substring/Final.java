@@ -16,15 +16,18 @@ public class Final {
 	public boolean contains(String origin, String sub) {
 		char[] arrayOfSourceChar = origin.toCharArray();
 		char[] arrayOfSubStringChar = sub.toCharArray();
-		int count = 0;
 		for (int i = 0; i < arrayOfSourceChar.length; i++) {
-			if (arrayOfSourceChar[i] == arrayOfSubStringChar[count]) {
-				if (count == arrayOfSubStringChar.length - 1) {
-					return true;
+			if (arrayOfSourceChar[i] == arrayOfSubStringChar[0]) {
+				for (int j = 0; j < arrayOfSubStringChar.length; j++) {
+					if (arrayOfSourceChar[i + j] == arrayOfSubStringChar[j]) {
+						if (j == arrayOfSubStringChar.length - 1) {
+						return true;
+						}
+					} else {
+						i += j - 1;
+						break;
+					}
 				}
-				count++;
-			} else {
-				count = 0;
 			}
 		}
 		return false;
