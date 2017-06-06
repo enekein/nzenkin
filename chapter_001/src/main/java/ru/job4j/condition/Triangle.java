@@ -6,24 +6,10 @@ package ru.job4j.condition;
   *@version 1.
  */
 
-public class Triangle {
-
-  /**
-   * @param a is coordinates of point 1 in triangle.
-  */
+ public class Triangle {
 
   private Point a;
-
-  /**
-   * @param b is coordinates of point 2 in triangle.
-  */
-
   private Point b;
-
-  /**
-   * @param c is coordinates of point 3 in triangle.
-  */
-
   private Point c;
 
   /**

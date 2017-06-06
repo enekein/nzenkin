@@ -8,16 +8,7 @@ package ru.job4j.condition;
 
 public class Point {
 
-   /**
-	* @param x is coordinate of point.
-   */
-
    private int x;
-
-   /**
-	* @param y is coordinate of point.
-   */
-
    private int y;
 
    /**
