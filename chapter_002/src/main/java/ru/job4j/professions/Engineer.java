@@ -18,11 +18,11 @@ public class Engineer extends Profession {
      * @param speciality String. Speciality of engineer.
      */
     Engineer (String fullName, String degree, int experience, int age, String speciality) {
-        this.fullName = fullName;
-        this.degree = degree;
-        this.experience = experience;
-        this.age = age;
-        this.speciality = speciality;
+        this.setFullName(fullName);
+        this.setDegree(degree);
+        this.setExperience(experience);
+        this.setAge(age);
+        this.setSpeciality(speciality);
     }
 
     /**
@@ -30,8 +30,8 @@ public class Engineer extends Profession {
      * @param something String.
      * @return String.
      */
-    public String repair(String something) {
-        return something + " is repaired by " + this.getFullName();
+    String repair(String something) {
+        return String.format("%s is repaired by %s", something, this.getFullName());
     }
 
     /**
@@ -39,8 +39,8 @@ public class Engineer extends Profession {
      * @param something String.
      * @return String.
      */
-    public String diagnosis(String something) {
-        return something + " isn't working correctly. Diagnosis by " + this.fullName +" "+ this.degree;
+    String diagnosis(String something) {
+        return String.format("%s isn't working correctly. Diagnosis by %s %s", something, this.fullName, this.degree);
     }
 
     /**
@@ -48,8 +48,8 @@ public class Engineer extends Profession {
      * @param worker String.
      * @return String.
      */
-    public String instructWorker(String worker) {
-        return worker + " is instructed.";
+    String instructWorker(String worker) {
+        return String.format("%s is instructed.", worker);
     }
 
     /**
@@ -59,4 +59,10 @@ public class Engineer extends Profession {
     public String getSpeciality() {
         return this.speciality;
     }
+
+    /**
+     * Set speciality.
+     * @param speciality String.
+     */
+    private void setSpeciality(String speciality) { this.speciality = speciality; }
 }

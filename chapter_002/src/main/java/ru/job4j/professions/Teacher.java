@@ -17,11 +17,11 @@ public class Teacher extends Profession {
      * @param mainSubject String. Main subject of teacher.
      */
     Teacher (String fullName, String degree, int experience, int age, String mainSubject) {
-        this.fullName = fullName;
-        this.degree = degree;
-        this.experience = experience;
-        this.age = age;
-        this.mainSubject = mainSubject;
+        this.setFullName(fullName);
+        this.setDegree(degree);
+        this.setExperience(experience);
+        this.setAge(age);
+        this.setMainSubject(mainSubject);
     }
 
     /**
@@ -30,8 +30,8 @@ public class Teacher extends Profession {
      * @param schoolClass String.
      * @return String.
      */
-    public String lesson(String subject, String schoolClass) {
-        return subject + " lesson is done for " + schoolClass;
+    String lesson(String subject, String schoolClass) {
+        return String.format("%s lesson is done for %s", subject, schoolClass);
     }
 
     /**
@@ -40,8 +40,8 @@ public class Teacher extends Profession {
      * @param schoolClass String.
      * @return String.
      */
-    public String practice(String subject, String schoolClass) {
-        return subject + " practice is done for " + schoolClass;
+    String practice(String subject, String schoolClass) {
+        return String.format("%s practice is done for %s", subject, schoolClass);
     }
 
     /**
@@ -50,8 +50,8 @@ public class Teacher extends Profession {
      * @param student String.
      * @return String.
      */
-    public String exam(String subject, String student) {
-        return subject + " exam is done by " + student + " with mark 5.";
+    String exam(String subject, String student) {
+        return String.format("%s exam is done by %s with mark 5.", subject, student);
     }
 
     /**
@@ -61,4 +61,10 @@ public class Teacher extends Profession {
     public String getMainSubject() {
         return this.mainSubject;
     }
+
+    /**
+     * Set main subject.
+     * @param mainSubject String.
+     */
+    private void setMainSubject(String mainSubject) { this.mainSubject = mainSubject; }
 }

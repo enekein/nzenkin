@@ -17,11 +17,11 @@ public class Doctor extends Profession {
      * @param speciality String. Speciality of doctor.
      */
     Doctor (String fullName, String degree, int experience, int age, String speciality) {
-        this.fullName = fullName;
-        this.degree = degree;
-        this.experience = experience;
-        this.age = age;
-        this.speciality = speciality;
+        this.setFullName(fullName);
+        this.setDegree(degree);
+        this.setExperience(experience);
+        this.setAge(age);
+        this.setSpeciality(speciality);
     }
 
     /**
@@ -33,12 +33,18 @@ public class Doctor extends Profession {
     }
 
     /**
+     * Set speciality.
+     * @param speciality String.
+     */
+    private void setSpeciality(String speciality) { this.speciality = speciality; }
+
+    /**
      * this method define health of patient.
      * @param patient String. Full name of patient.
      * @return String.
      */
-    public String diagnosis(String patient) {
-        return "The doctor " + this.getFullName() + " says that " + patient + " is sick.";
+    String diagnosis(String patient) {
+        return String.format("The doctor %s says that %s is sick.", this.getFullName(), patient);
     }
 
     /**
@@ -46,8 +52,8 @@ public class Doctor extends Profession {
      * @param patient String. Full name of patient.
      * @return String.
      */
-    public String consilium(String patient) {
-        return "Consilium with " + patient + " is done.";
+    String consilium(String patient) {
+        return String.format("Consilium with %s is done.", patient);
     }
 
     /**
@@ -55,7 +61,7 @@ public class Doctor extends Profession {
      * @param patient String. Full name of patient.
      * @return String.
      */
-    public String fillBlank(String patient) {
-        return "Blank of " + patient + " was filled by " + this.getFullName();
+    String fillBlank(String patient) {
+        return String.format("Blank of %s was filled by %s", patient, this.getFullName());
     }
 }
