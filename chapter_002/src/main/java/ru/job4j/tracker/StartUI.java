@@ -6,14 +6,28 @@ package ru.job4j.tracker;
  * @since 07.06.2017.
  */
 public class StartUI {
+    /**
+     * Input variable.
+     */
     private Input input;
+    /**
+     * Output variable.
+     */
     private Output output;
 
+    /**
+     * Constructor.
+     * @param input Input class.
+     * @param output Output class.
+     */
     private StartUI(Input input, Output output) {
         this.input = input;
         this.output = output;
     }
 
+    /**
+     * initial method.
+     */
     private void init() {
         String action = "";
         String lineSeparator = System.lineSeparator();
@@ -21,14 +35,14 @@ public class StartUI {
         Tracker tracker = new Tracker();
         while (!action.equals("6")) {
             action = input.ask(
-                    "0.Add new item" + lineSeparator +
-                            "1.Show all items" + lineSeparator +
-                            "2.Edit item" + lineSeparator +
-                            "3.Delete item" + lineSeparator +
-                            "4.Find item by ID" + lineSeparator +
-                            "5.Find items by name" + lineSeparator +
-                            "6.Exit program" + lineSeparator +
-                            "Select:" + lineSeparator);
+                    "0.Add new item" + lineSeparator
+                            + "1.Show all items" + lineSeparator
+                            + "2.Edit item" + lineSeparator
+                            + "3.Delete item" + lineSeparator
+                            + "4.Find item by ID" + lineSeparator
+                            + "5.Find items by name" + lineSeparator
+                            + "6.Exit program" + lineSeparator
+                            + "Select:" + lineSeparator);
             switch (action) {
                 case "0":
                     name = input.ask("Enter name of new item: ");
@@ -70,6 +84,10 @@ public class StartUI {
         }
     }
 
+    /**
+     * Main.
+     * @param args String[].
+     */
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Output output = new ConsoleOutput();

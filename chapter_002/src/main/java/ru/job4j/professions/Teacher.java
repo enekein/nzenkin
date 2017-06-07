@@ -6,6 +6,9 @@ package ru.job4j.professions;
  */
 
 public class Teacher extends Profession {
+    /**
+     * Main subject of teacher String.
+     */
     private String mainSubject;
 
     /**
@@ -16,7 +19,7 @@ public class Teacher extends Profession {
      * @param age int. Age of doctor.
      * @param mainSubject String. Main subject of teacher.
      */
-    Teacher (String fullName, String degree, int experience, int age, String mainSubject) {
+    Teacher(String fullName, String degree, int experience, int age, String mainSubject) {
         this.setFullName(fullName);
         this.setDegree(degree);
         this.setExperience(experience);
@@ -66,5 +69,7 @@ public class Teacher extends Profession {
      * Set main subject.
      * @param mainSubject String.
      */
-    private void setMainSubject(String mainSubject) { this.mainSubject = mainSubject; }
+    private void setMainSubject(String mainSubject) {
+        this.mainSubject = mainSubject;
+    }
 }

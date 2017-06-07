@@ -6,7 +6,9 @@ package ru.job4j.professions;
  */
 
 public class Engineer extends Profession {
-
+    /**
+     * Speciality of engineer String.
+     */
     private String speciality;
 
     /**
@@ -17,7 +19,7 @@ public class Engineer extends Profession {
      * @param age int. Age of doctor.
      * @param speciality String. Speciality of engineer.
      */
-    Engineer (String fullName, String degree, int experience, int age, String speciality) {
+    Engineer(String fullName, String degree, int experience, int age, String speciality) {
         this.setFullName(fullName);
         this.setDegree(degree);
         this.setExperience(experience);
@@ -40,7 +42,7 @@ public class Engineer extends Profession {
      * @return String.
      */
     String diagnosis(String something) {
-        return String.format("%s isn't working correctly. Diagnosis by %s %s", something, this.fullName, this.degree);
+        return String.format("%s isn't working correctly. Diagnosis by %s %s", something, this.getFullName(), this.getDegree());
     }
 
     /**
@@ -64,5 +66,7 @@ public class Engineer extends Profession {
      * Set speciality.
      * @param speciality String.
      */
-    private void setSpeciality(String speciality) { this.speciality = speciality; }
+    private void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 }

@@ -1,5 +1,5 @@
 /**
- * Package for professions task
+ * Package for professions task.
  *
  * @author Nikita Zenkin
  * @version 1

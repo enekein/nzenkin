@@ -1,22 +1,27 @@
 package ru.job4j.tracker;
 
-import java.util.Random;
-
 /**
  * @author Nikita Zenkin.
  * @version 1.
  * @since 06.06.2017.
  */
 public class Tracker {
+    /**
+     * Array of items.
+     */
     private Item[] items = new Item[100];
+    /**
+     * Number items in array.
+     */
     private int position = 0;
-    private static final Random RN = new Random();
 
     /**
      * Get Items.
      * @return Item[].
      */
-    public Item[] getItems() { return this.items; }
+    public Item[] getItems() {
+        return this.items;
+    }
 
     /**
      * Add new item.

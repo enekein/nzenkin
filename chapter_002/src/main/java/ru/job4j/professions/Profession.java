@@ -6,10 +6,22 @@ package ru.job4j.professions;
  */
 
 public class Profession {
-    String fullName;
-    String degree;
-    int experience;
-    int age;
+    /**
+     * Full name of worker String.
+     */
+    private String fullName;
+    /**
+     * Degree of worker String.
+     */
+    private String degree;
+    /**
+     * Experience of worker int.
+     */
+    private int experience;
+    /**
+     * Age of worker int.
+     */
+    private int age;
 
     /**
      * Get full name of doctor.
@@ -47,23 +59,31 @@ public class Profession {
      * Set full name.
      * @param fullName String.
      */
-    public void setFullName(String fullName) { this.fullName = fullName; }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
     /**
      * Set degree.
      * @param degree String.
      */
-    public void setDegree(String degree) { this.degree = degree; }
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
 
     /**
      * Set experience.
      * @param experience int.
      */
-    public void setExperience(int experience) { this.experience = experience; }
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
 
     /**
      * Set age.
      * @param age int.
      */
-    public void setAge(int age) { this.age = age; }
+    public void setAge(int age) {
+        this.age = age;
+    }
 }

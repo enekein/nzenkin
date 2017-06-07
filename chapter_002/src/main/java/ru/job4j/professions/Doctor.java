@@ -6,6 +6,9 @@ package ru.job4j.professions;
  */
 
 public class Doctor extends Profession {
+    /**
+     * Speciality of doctor String.
+     */
     private String speciality;
 
     /**
@@ -16,7 +19,7 @@ public class Doctor extends Profession {
      * @param age int. Age of doctor.
      * @param speciality String. Speciality of doctor.
      */
-    Doctor (String fullName, String degree, int experience, int age, String speciality) {
+    Doctor(String fullName, String degree, int experience, int age, String speciality) {
         this.setFullName(fullName);
         this.setDegree(degree);
         this.setExperience(experience);
@@ -36,7 +39,9 @@ public class Doctor extends Profession {
      * Set speciality.
      * @param speciality String.
      */
-    private void setSpeciality(String speciality) { this.speciality = speciality; }
+    private void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 
     /**
      * this method define health of patient.
