@@ -43,7 +43,7 @@ public class StartUI {
                             + "5.Find items by name" + lineSeparator
                             + "6.Exit program" + lineSeparator
                             + "Select:" + lineSeparator);
-            switch (action) {
+           /* switch (action) {
                 case "0":
                     name = input.ask("Enter name of new item: ");
                     desc = input.ask("Enter description of new item: ");
@@ -80,7 +80,7 @@ public class StartUI {
                     break;
                 default:
                     System.out.print("Please enter correct menu number!" + lineSeparator);
-            }
+            }*/
         }
     }
 
