@@ -39,13 +39,13 @@ public class Item {
      * Set name.
      * @param name String.
      */
-    private void setName(String name) { this.name = name; }
+    void setName(String name) { this.name = name; }
 
     /**
      * Set description.
      * @param desc String.
      */
-    private void setDesc(String desc) { this.desc = desc; }
+    void setDesc(String desc) { this.desc = desc; }
 
     /**
      * Set created.

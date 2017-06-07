@@ -24,7 +24,6 @@ public class Tracker {
      * @return Item. Return added item.
      */
     Item add(Item item) {
-        item.setId(this.generateId());
         this.items[position++] = item;
         return items[position];
     }
@@ -109,13 +108,5 @@ public class Tracker {
             result[index] = this.items[index];
         }
         return result;
-    }
-
-    /**
-     * Generate id for new item.
-     * @return String.
-     */
-    private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 }
