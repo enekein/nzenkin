@@ -5,7 +5,11 @@ package ru.job4j.strategy;
  * @version 1.
  * @since 08.06.2017.
  */
-public class Triangle implements Shape{
+public class Triangle implements Shape {
+    /**
+     * String of triangle.
+     * @return String.
+     */
     public String pic() {
         StringBuilder s = new StringBuilder();
         int h = 10;

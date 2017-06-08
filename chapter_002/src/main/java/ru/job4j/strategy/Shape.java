@@ -6,5 +6,9 @@ package ru.job4j.strategy;
  * @since 08.06.2017.
  */
 public interface Shape {
+    /**
+     * return String of needed shape.
+     * @return String.
+     */
     String pic();
 }
