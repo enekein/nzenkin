@@ -14,25 +14,30 @@ public class StartUI {
      * Output variable.
      */
     private Output output;
+    /**
+     * Tracker variable.
+     */
+    private Tracker tracker;
 
     /**
      * Constructor.
      * @param input Input class.
      * @param output Output class.
+     * @param tracker Tracker class.
      */
-    private StartUI(Input input, Output output) {
+    StartUI(Input input, Output output, Tracker tracker) {
         this.input = input;
         this.output = output;
+        this.tracker = tracker;
     }
 
     /**
      * initial method.
      */
-    private void init() {
+    void init() {
         String action = "";
         String lineSeparator = System.lineSeparator();
         String id, name, desc;
-        Tracker tracker = new Tracker();
         while (!action.equals("6")) {
             action = input.ask(
                     new StringBuilder()
@@ -92,6 +97,7 @@ public class StartUI {
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Output output = new ConsoleOutput();
-        new StartUI(input, output).init();
+        Tracker tracker = new Tracker();
+        new StartUI(input, output, tracker).init();
     }
 }

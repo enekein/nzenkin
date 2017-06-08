@@ -12,6 +12,9 @@ import java.io.PrintStream;
  * @since 08.06.2017.
  */
 public class PaintTest {
+    /**
+     * Test method paint for triangle.
+     */
     @Test
     public void whenCreateNewTriangleThenPrintTriangle() {
         String lineSeparator = System.lineSeparator();
@@ -46,7 +49,9 @@ public class PaintTest {
                 .append(lineSeparator);
         assertThat(baos.toString(), is(expected.toString()));
     }
-
+    /**
+     * Test method paint for square.
+     */
     @Test
     public void whenCreateNewSquareThenPrintSquare() {
         String lineSeparator = System.lineSeparator();
