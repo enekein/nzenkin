@@ -35,15 +35,16 @@ public class StartUI {
         Tracker tracker = new Tracker();
         while (!action.equals("6")) {
             action = input.ask(
-                    "0.Add new item" + lineSeparator
-                            + "1.Show all items" + lineSeparator
-                            + "2.Edit item" + lineSeparator
-                            + "3.Delete item" + lineSeparator
-                            + "4.Find item by ID" + lineSeparator
-                            + "5.Find items by name" + lineSeparator
-                            + "6.Exit program" + lineSeparator
-                            + "Select:" + lineSeparator);
-           /* switch (action) {
+                    new StringBuilder()
+                            .append("0.Add new item").append(lineSeparator)
+                            .append("1.Show all items").append(lineSeparator)
+                            .append("2.Edit item").append(lineSeparator)
+                            .append("3.Delete item").append(lineSeparator)
+                            .append("4.Find item by ID").append(lineSeparator)
+                            .append("5.Find items by name").append(lineSeparator)
+                            .append("6.Exit program").append(lineSeparator)
+                            .append("Select:").append(lineSeparator).toString());
+           switch (action) {
                 case "0":
                     name = input.ask("Enter name of new item: ");
                     desc = input.ask("Enter description of new item: ");
@@ -80,7 +81,7 @@ public class StartUI {
                     break;
                 default:
                     System.out.print("Please enter correct menu number!" + lineSeparator);
-            }*/
+            }
         }
     }
 
