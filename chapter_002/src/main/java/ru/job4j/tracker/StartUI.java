@@ -35,7 +35,16 @@ public class StartUI {
      * initial method.
      */
     void init() {
-        String action = "";
+        Tracker tracker = new Tracker();
+        MenuTracker menu = new MenuTracker(this.input, this.output, this.tracker);
+        int key;
+        menu.fillActions();
+        do {
+            menu.show();
+            key = Integer.valueOf(input.ask("Select: "));
+            menu.select(key);
+        } while (key != 6);
+        /*String action = "";
         String lineSeparator = System.lineSeparator();
         String id, name, desc;
         while (!action.equals("6")) {
@@ -53,7 +62,7 @@ public class StartUI {
                 case "0":
                     name = input.ask("Enter name of new item: ");
                     desc = input.ask("Enter description of new item: ");
-                    tracker.add(new Item(name, desc, 123));
+                    tracker.add(new Item(name, desc));
                     System.out.print("You added new item!" + lineSeparator);
                     break;
                 case "1":
@@ -87,7 +96,7 @@ public class StartUI {
                 default:
                     System.out.print("Please enter correct menu number!" + lineSeparator);
             }
-        }
+        }*/
     }
 
     /**

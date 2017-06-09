@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -27,7 +29,7 @@ public class Item {
     /**
      * Comments of item String[].
      */
-    private String[] comments;
+    private String[] comments = new String[10];
     /**
      * Comments number of item int.
      */
@@ -41,13 +43,13 @@ public class Item {
      * Constructor.
      * @param name String.
      * @param desc String.
-     * @param created long.
      */
-    Item(String name, String desc, long created) {
+    Item(String name, String desc, String comment) {
         setName(name);
         setDesc(desc);
-        setCreated(created);
+        setCreated();
         setId(generateId());
+        addComment(comment);
     }
 
     /**
@@ -75,18 +77,17 @@ public class Item {
     }
 
     /**
-     * Set created.
-     * @param created long.
+     * Set created to current date.
      */
-    private void setCreated(long created) {
-        this.created = created;
+    private void setCreated() {
+        this.created = getDate();
     }
 
     /**
      * Add new comment to item.
      * @param comment String.
      */
-    public void addComments(String comment) {
+    public void addComment(String comment) {
         this.comments[positionComment++] = comment;
     }
 
@@ -136,5 +137,14 @@ public class Item {
      */
     private String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+    }
+
+    /**
+     *
+     */
+    private long getDate(){
+        Date dateNow = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyyMMdd");
+        return Long.valueOf(formatForDateNow.format(dateNow));
     }
 }

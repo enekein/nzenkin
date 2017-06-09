@@ -17,14 +17,18 @@ public class ConsoleOutput implements Output {
      */
     public void printItems(Item[] items) {
         for (Item item : items) {
-            System.out.print(String.format("ID: %sName: %sDesc: %sCreated: %d%s",
-                    item.getId() + lineSeparator, item.getName() + lineSeparator,
-                    item.getDesc() + lineSeparator, item.getCreated(), lineSeparator));
-            String[] temp = item.getComments();
-            System.out.print("Comments:" + lineSeparator);
-            if (temp != null) {
-                for (String comment: temp) {
-                    System.out.print(comment + lineSeparator);
+            if (item.getId() != null) {
+                System.out.print(String.format("ID: %sName: %sDesc: %sCreated: %d%s",
+                        item.getId() + lineSeparator, item.getName() + lineSeparator,
+                        item.getDesc() + lineSeparator, item.getCreated(), lineSeparator));
+                String[] temp = item.getComments();
+                System.out.println("Comments:");
+                if (temp != null) {
+                    for (String comment : temp) {
+                        if (comment != null) {
+                            System.out.println(comment);
+                        }
+                    }
                 }
             }
         }
@@ -35,15 +39,21 @@ public class ConsoleOutput implements Output {
      * @param item Item.
      */
     public void printItem(Item item) {
-        System.out.print(String.format("ID: %sName: %sDesc: %sCreated: %d%s",
-                item.getId() + lineSeparator, item.getName() + lineSeparator,
-                item.getDesc() + lineSeparator, item.getCreated(), lineSeparator));
-        String[] temp = item.getComments();
-        System.out.print("Comments:" + lineSeparator);
-        if (temp != null) {
-            for (String comment: temp) {
-                System.out.print(comment + lineSeparator);
-            }
+        if (item.getId() != null) {
+            System.out.print(String.format("ID: %sName: %sDesc: %sCreated: %d%s",
+                    item.getId() + lineSeparator, item.getName() + lineSeparator,
+                    item.getDesc() + lineSeparator, item.getCreated(), lineSeparator));
+            String[] temp = item.getComments();
+            System.out.println("Comments:");
+            if (temp != null) {
+                for (String comment : temp) {
+                    if (comment != null) {
+                        System.out.println(comment);
+                    }
+                }
+                }
+            } else {
+            System.out.println("Empty item!");
         }
     }
 }
