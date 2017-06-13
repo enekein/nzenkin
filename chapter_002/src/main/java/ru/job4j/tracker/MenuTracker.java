@@ -9,7 +9,15 @@ package ru.job4j.tracker;
 /**
  * Outer non-static class for update item.
  */
-class UpdateItem implements UserAction {
+class UpdateItem extends BaseAction {
+    /**
+     * Constructor for BaseAction.
+     * @param name String.
+     * @param key int.
+     */
+    public UpdateItem(String name, int key) {
+        super(name, key);
+    }
     /**
      * Key for update item.
      * @return int.
@@ -39,9 +47,9 @@ class UpdateItem implements UserAction {
      * Info for menu.
      * @return String.
      */
-    public String info() {
+    /*public String info() {
         return String.format("%s. %s", this.key(), "Update item");
-    }
+    }*/
 }
 
 /**
@@ -89,13 +97,13 @@ public class MenuTracker {
      * Fill array by actions.
      */
     public void fillActions() {
-        this.actions[0] = this.new AddItem();
-        this.actions[1] = new MenuTracker.ShowItems();
-        this.actions[2] = new UpdateItem();
-        this.actions[3] = this.new DeleteItem();
-        this.actions[4] = this.new FindById();
-        this.actions[5] = this.new FindByName();
-        this.actions[6] = this.new Exit();
+        this.actions[0] = this.new AddItem("Add Item", 0);
+        this.actions[1] = new MenuTracker.ShowItems("Show Item", 1);
+        this.actions[2] = new UpdateItem("Update Item", 2);
+        this.actions[3] = this.new DeleteItem("Delete Item", 3);
+        this.actions[4] = this.new FindById("Find By ID", 4);
+        this.actions[5] = this.new FindByName("Find By Name", 5);
+        this.actions[6] = this.new Exit("Exit", 6);
     }
 
     /**
@@ -122,7 +130,16 @@ public class MenuTracker {
     /**
      * Inner non-static class for add item.
      */
-    private class AddItem implements UserAction {
+    private class AddItem extends BaseAction {
+        /**
+         * Constructor for BaseAction.
+         * @param name String.
+         * @param key int.
+         */
+        public AddItem(String name, int key) {
+            super(name, key);
+        }
+
         /**
          * Key for add item.
          * @return int.
@@ -149,15 +166,23 @@ public class MenuTracker {
          * Info for menu.
          * @return String.
          */
-        public String info() {
+        /*public String info() {
             return String.format("%s. %s", this.key(), "Add new item");
-        }
+        }*/
     }
 
     /**
      * Inner static class for show items.
      */
-    private static class ShowItems implements UserAction {
+    private static class ShowItems extends BaseAction{
+        /**
+         * Constructor for BaseAction.
+         * @param name String.
+         * @param key int.
+         */
+        public ShowItems(String name, int key) {
+            super(name, key);
+        }
         /**
          * Key for show items.
          * @return int.
@@ -180,15 +205,23 @@ public class MenuTracker {
          * Info for menu.
          * @return String.
          */
-        public String info() {
+        /*public String info() {
             return String.format("%s. %s", this.key(), "Show all items");
-        }
+        }*/
     }
 
     /**
      * Inner non-static class for delete item.
      */
-    private class DeleteItem implements UserAction {
+    private class DeleteItem extends BaseAction {
+        /**
+         * Constructor for BaseAction.
+         * @param name String.
+         * @param key int.
+         */
+        public DeleteItem(String name, int key) {
+            super(name, key);
+        }
         /**
          * Key for delete item.
          * @return int.
@@ -213,15 +246,23 @@ public class MenuTracker {
          * Info for menu.
          * @return String.
          */
-        public String info() {
+        /*public String info() {
             return String.format("%s. %s", this.key(), "Delete item");
-        }
+        }*/
     }
 
     /**
      * Inner non-static class for find by id.
      */
-    private class FindById implements UserAction {
+    private class FindById extends BaseAction {
+        /**
+         * Constructor for BaseAction.
+         * @param name String.
+         * @param key int.
+         */
+        public FindById(String name, int key) {
+            super(name, key);
+        }
         /**
          * Key for find by Id.
          * @return int.
@@ -245,15 +286,23 @@ public class MenuTracker {
          * Info for menu.
          * @return String.
          */
-        public String info() {
+       /* public String info() {
             return String.format("%s. %s", this.key(), "Find item by ID");
-        }
+        }*/
     }
 
     /**
      * Inner non-static class for find by name.
      */
-    private class FindByName implements UserAction {
+    private class FindByName extends BaseAction {
+        /**
+         * Constructor for BaseAction.
+         * @param name String.
+         * @param key int.
+         */
+        public FindByName(String name, int key) {
+            super(name, key);
+        }
         /**
          * Key for find by name.
          * @return int.
@@ -277,15 +326,23 @@ public class MenuTracker {
          * Info for menu.
          * @return String.
          */
-        public String info() {
+       /* public String info() {
             return String.format("%s. %s", this.key(), "Find item by name");
-        }
+        }*/
     }
 
     /**
      * Inner non-static class for exit.
      */
-    private class Exit implements UserAction {
+    private class Exit extends BaseAction {
+        /**
+         * Constructor for BaseAction.
+         * @param name String.
+         * @param key int.
+         */
+        public Exit(String name, int key) {
+            super(name, key);
+        }
         /**
          * Key for exit.
          * @return int.
@@ -308,9 +365,9 @@ public class MenuTracker {
          * Info for menu.
          * @return String.
          */
-        public String info() {
+/*        public String info() {
             return String.format("%s. %s", this.key(), "Exit program");
-        }
+        }*/
     }
 
 }
