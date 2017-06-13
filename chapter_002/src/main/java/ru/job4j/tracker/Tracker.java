@@ -59,7 +59,7 @@ public class Tracker {
                 if (index == 0) {
                     System.arraycopy(items, index + 1, newItems, index, position - 1);
                     position--;
-                } else if(index == position - 1) {
+                } else if (index == position - 1) {
                     System.arraycopy(items, 0, newItems, 0, position - 1);
                     position--;
                 } else {

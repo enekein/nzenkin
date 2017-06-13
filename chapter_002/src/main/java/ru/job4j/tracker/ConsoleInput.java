@@ -23,6 +23,12 @@ public class ConsoleInput implements Input {
         return scanner.nextLine();
     }
 
+    /**
+     * Overload ask.
+     * @param question String.
+     * @param range int[].
+     * @return int.
+     */
     public int ask(String question, int[] range) {
         int key = Integer.valueOf(this.ask(question));
         boolean exist = false;

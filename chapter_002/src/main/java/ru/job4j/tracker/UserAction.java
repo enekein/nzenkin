@@ -6,9 +6,23 @@ package ru.job4j.tracker;
  * @since 08.06.2017.
  */
 public interface UserAction {
+    /**
+     * Return key of action.
+     * @return int.
+     */
     int key();
 
-    void execute(Input input, Output output,Tracker tracker);
+    /**
+     * Execute action.
+     * @param input Input.
+     * @param output Output.
+     * @param tracker Tracker.
+     */
+    void execute(Input input, Output output, Tracker tracker);
 
+    /**
+     * Info for menu.
+     * @return String.
+     */
     String info();
 }

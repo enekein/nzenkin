@@ -21,7 +21,7 @@ public class StartUI {
     /**
      * Code for exit from menu.
      */
-    private final static int exit = 6;
+    private static final int EXIT = 6;
 
     /**
      * Constructor.
@@ -49,7 +49,7 @@ public class StartUI {
         do {
             menu.show();
             key = menu.select(input.ask("Select: ", ranges));
-        } while (key != exit);
+        } while (key != EXIT);
         /*String action = "";
         String lineSeparator = System.lineSeparator();
         String id, name, desc;

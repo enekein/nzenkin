@@ -5,8 +5,14 @@ package ru.job4j.tracker;
  * @version 1.
  * @since 13.06.2017.
  */
-public class ValidateInput extends ConsoleInput{
-    public int ask(String question, int[] range){
+public class ValidateInput extends ConsoleInput {
+    /**
+     * Override ask.
+     * @param question String.
+     * @param range int[].
+     * @return int.
+     */
+    public int ask(String question, int[] range) {
         boolean invalid = true;
         int value = -1;
         do {

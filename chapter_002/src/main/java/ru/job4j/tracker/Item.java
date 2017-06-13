@@ -43,6 +43,7 @@ public class Item {
      * Constructor.
      * @param name String.
      * @param desc String.
+     * @param comment String.
      */
     Item(String name, String desc, String comment) {
         setName(name);
@@ -140,9 +141,10 @@ public class Item {
     }
 
     /**
-     *
+     * Get date for new item.
+     * @return long.
      */
-    private long getDate(){
+    private long getDate() {
         Date dateNow = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyyMMdd");
         return Long.valueOf(formatForDateNow.format(dateNow));

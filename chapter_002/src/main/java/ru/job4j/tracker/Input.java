@@ -13,5 +13,11 @@ public interface Input {
      */
     String ask(String question);
 
+    /**
+     * Overload ask.
+     * @param question String.
+     * @param range int[].
+     * @return int.
+     */
     int ask(String question, int[] range);
 }
