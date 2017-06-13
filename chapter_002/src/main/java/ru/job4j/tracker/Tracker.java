@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+
 /**
  * @author Nikita Zenkin.
  * @version 1.
@@ -101,9 +103,7 @@ public class Tracker {
                 temp++;
             }
         }
-        Item[] resultWithZenLength = new Item[temp];
-        System.arraycopy(result, 0, resultWithZenLength, 0, temp);
-        return resultWithZenLength;
+        return Arrays.copyOf(result, temp);
     }
 
     /**

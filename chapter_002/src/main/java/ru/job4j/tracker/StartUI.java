@@ -18,6 +18,10 @@ public class StartUI {
      * Tracker variable.
      */
     private Tracker tracker;
+    /**
+     * Code for exit from menu.
+     */
+    private final static int exit = 6;
 
     /**
      * Constructor.
@@ -35,15 +39,17 @@ public class StartUI {
      * initial method.
      */
     void init() {
-        Tracker tracker = new Tracker();
         MenuTracker menu = new MenuTracker(this.input, this.output, this.tracker);
+        int[] ranges = new int[menu.getUserActionsLength()];
+        for (int index = 0; index < ranges.length; index++) {
+            ranges[index] = index;
+        }
         int key;
         menu.fillActions();
         do {
             menu.show();
-            key = Integer.valueOf(input.ask("Select: "));
-            menu.select(key);
-        } while (key != 6);
+            key = menu.select(input.ask("Select: ", ranges));
+        } while (key != exit);
         /*String action = "";
         String lineSeparator = System.lineSeparator();
         String id, name, desc;
@@ -104,7 +110,7 @@ public class StartUI {
      * @param args String[].
      */
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         new StartUI(input, output, tracker).init();

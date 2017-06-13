@@ -54,6 +54,10 @@ public class MenuTracker {
         this.tracker = tracker;
     }
 
+    public int getUserActionsLength() {
+        return actions.length;
+    }
+
     public void fillActions() {
         this.actions[0] = this.new AddItem();
         this.actions[1] = new MenuTracker.ShowItems();
@@ -64,8 +68,9 @@ public class MenuTracker {
         this.actions[6] = this.new Exit();
     }
 
-    public void select(int key) {
+    public int select(int key) {
         this.actions[key].execute(this.input, this.output, this.tracker);
+        return key;
     }
 
     public void show() {
