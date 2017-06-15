@@ -36,10 +36,11 @@ class UpdateItem extends BaseAction {
         String id = input.ask("Enter id of item that you want to update: ");
         String name = input.ask("Enter new name of item: ");
         String desc = input.ask("Enter new description of item: ");
-        Item newItem = tracker.findById(id);
-        newItem.setName(name);
-        newItem.setDesc(desc);
-        tracker.update(newItem);
+        try {
+            tracker.update(new Item(tracker.findById(id).getId(), name, desc));
+        } catch (NullPointerException npe) {
+            System.out.println(String.format("Item with ID %s is not existing in tracker.", id));
+        }
         System.out.println(String.format("Item with ID %s updated", id));
     }
 
@@ -238,7 +239,11 @@ public class MenuTracker {
          */
         public void execute(Input input, Output output, Tracker tracker) {
             String id = input.ask("Enter id of item that you want to delete: ");
-            tracker.delete(tracker.findById(id));
+            try {
+                tracker.delete(tracker.findById(id));
+            } catch (NullPointerException npe) {
+                System.out.println(String.format("Item with ID %s is not existing in tracker.", id));
+            }
             System.out.print(String.format("Item with ID %s deleted %s", id, System.lineSeparator()));
         }
 

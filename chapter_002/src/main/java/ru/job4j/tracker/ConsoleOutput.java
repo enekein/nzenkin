@@ -18,9 +18,7 @@ public class ConsoleOutput implements Output {
     public void printItems(Item[] items) {
         for (Item item : items) {
             if (item.getId() != null) {
-                System.out.print(String.format("ID: %sName: %sDesc: %sCreated: %d%s",
-                        item.getId() + lineSeparator, item.getName() + lineSeparator,
-                        item.getDesc() + lineSeparator, item.getCreated(), lineSeparator));
+                System.out.println(item);
                 String[] temp = item.getComments();
                 System.out.println("Comments:");
                 if (temp != null) {
@@ -40,9 +38,7 @@ public class ConsoleOutput implements Output {
      */
     public void printItem(Item item) {
         if (item.getId() != null) {
-            System.out.print(String.format("ID: %sName: %sDesc: %sCreated: %d%s",
-                    item.getId() + lineSeparator, item.getName() + lineSeparator,
-                    item.getDesc() + lineSeparator, item.getCreated(), lineSeparator));
+            System.out.println(item);
             String[] temp = item.getComments();
             System.out.println("Comments:");
             if (temp != null) {
@@ -53,7 +49,7 @@ public class ConsoleOutput implements Output {
                 }
                 }
             } else {
-            System.out.println("Empty item!");
+            throw new RuntimeException("Empty item!");
         }
     }
 }

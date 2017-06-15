@@ -30,18 +30,12 @@ public class ConsoleInput implements Input {
      * @return int.
      */
     public int ask(String question, int[] range) {
-        int key = Integer.valueOf(this.ask(question));
-        boolean exist = false;
-        for (int value : range) {
-            if (value == key) {
-                exist = true;
-                break;
-            }
+        int key = -1;
+        try {
+            key = Integer.valueOf(this.ask(question));
+        } catch (NumberFormatException nfe) {
+            System.out.println("Please enter valid data next time.");
         }
-        if (exist) {
-            return key;
-        } else {
-            throw new MenuOutException("Out of menu range.");
-        }
+        return key;
     }
 }

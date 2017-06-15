@@ -38,6 +38,10 @@ public class Item {
      * Variable for Random in generateId().
      */
     private static final Random RN = new Random();
+    /**
+     * Line separator for output.
+     */
+    private String lineSeparator = System.lineSeparator();
 
     /**
      * Constructor.
@@ -46,46 +50,15 @@ public class Item {
      * @param comment String.
      */
     Item(String name, String desc, String comment) {
-        setName(name);
-        setDesc(desc);
-        setCreated();
-        setId(generateId());
+        this.name = name;
+        this.desc = desc;
+        this.created = getDate();
+        this.id = generateId();
         addComment(comment);
     }
 
     /**
-     * Set id.
-     * @param id String.
-     */
-    void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * Set name.
-     * @param name String.
-     */
-    void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Set description.
-     * @param desc String.
-     */
-    void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    /**
-     * Set created to current date.
-     */
-    private void setCreated() {
-        this.created = getDate();
-    }
-
-    /**
-     * Add new comment to item.
+     * Add comment.
      * @param comment String.
      */
     public void addComment(String comment) {
@@ -148,5 +121,24 @@ public class Item {
         Date dateNow = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyyMMdd");
         return Long.valueOf(formatForDateNow.format(dateNow));
+    }
+
+    /**
+     * Override toString() method for item.
+     * @return String.
+     */
+    @Override
+    public String toString() {
+        return String.format("ID: %sName: %sDesc: %sCreated: %d%s",
+                this.getId() + lineSeparator, this.getName() + lineSeparator,
+                this.getDesc() + lineSeparator, this.getCreated(), lineSeparator);
+    }
+
+    /**
+     * Needed for JUnit, update test.
+     * @param id String.
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 }
