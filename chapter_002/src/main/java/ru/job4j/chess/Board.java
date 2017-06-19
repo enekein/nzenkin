@@ -76,8 +76,7 @@ public class Board {
             OccupiedWayException, FigureNotFoundException {
         int index;
         for (index = 0; index < positionInArray; index++) {
-            if ((source.getNumber() == figures[index].getPosition().getNumber())
-                    && (source.getLetter() == figures[index].getPosition().getLetter())) {
+            if ((figures[index].checkEquality(source))) {
                 break;
             }
             if (index == positionInArray - 1) {
@@ -90,8 +89,7 @@ public class Board {
         }
         for (int indexMoves = 0; indexMoves < arrayOfMoves.length; indexMoves++) {
             for (int indexFigures = 0; indexFigures < positionInArray; indexFigures++) {
-                if ((figures[indexFigures].getPosition().getLetter() == arrayOfMoves[indexMoves].getLetter())
-                        && (figures[indexFigures].getPosition().getNumber() == arrayOfMoves[indexMoves].getNumber())) {
+                if ((figures[indexFigures].checkEquality(arrayOfMoves[indexMoves]))) {
                     throw new OccupiedWayException("Way of selected figure is blocked.");
                 }
             }

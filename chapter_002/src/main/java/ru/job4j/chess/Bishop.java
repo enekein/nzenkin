@@ -33,43 +33,35 @@ public class Bishop extends Figure {
     Cell[] way(Cell dist) {
         Cell[] path = new Cell[8];
         try {
-            if (getCell().getNumber() > dist.getNumber() && (getCell().getLetter() > dist.getLetter())) {
-                int numberLength = 1;
-                int letterLength = 1;
-                for (; numberLength < 8; numberLength++, letterLength++) {
-                    path[numberLength - 1] = new Cell(this.getCell().getLetter() - letterLength, this.getCell().getNumber() - numberLength);
-                    if ((this.getCell().getNumber() - numberLength == dist.getLetter()) && (this.getCell().getLetter() - letterLength == dist.getNumber())) {
-                        return copyOf(path, numberLength - 1);
+            if (this.getCell().getNumber() > dist.getNumber() && (this.getCell().getLetter() > dist.getLetter())) {
+                for (int length = 1; length <= 8; length++) {
+                    path[length - 1] = new Cell(this.getCell().getLetter() - length, this.getCell().getNumber() - length);
+                    if ((this.getCell().getNumber() - length == dist.getNumber()) && (this.getCell().getLetter() - length == dist.getLetter())) {
+                        return copyOf(path, length - 1);
                     }
                 }
             }
-            if (getCell().getNumber() < dist.getNumber() && (getCell().getLetter() > dist.getLetter())) {
-                int numberLength = 1;
-                int letterLength = 1;
-                for (; numberLength < 8; numberLength++, letterLength++) {
-                    path[numberLength - 1] = new Cell(this.getCell().getLetter() + letterLength, this.getCell().getNumber() - numberLength);
-                    if ((this.getCell().getNumber() + numberLength == dist.getLetter()) && (this.getCell().getLetter() - letterLength == dist.getNumber())) {
-                        return copyOf(path, numberLength - 1);
+            if (this.getCell().getNumber() < dist.getNumber() && (this.getCell().getLetter() > dist.getLetter())) {
+                for (int length = 1; length <= 8; length++) {
+                    path[length - 1] = new Cell(this.getCell().getLetter() + length, this.getCell().getNumber() - length);
+                    if ((this.getCell().getNumber() + length == dist.getNumber()) && (this.getCell().getLetter() - length == dist.getLetter())) {
+                        return copyOf(path, length - 1);
                     }
                 }
             }
-            if (getCell().getNumber() > dist.getNumber() && (getCell().getLetter() < dist.getLetter())) {
-                int numberLength = 1;
-                int letterLength = 1;
-                for (; numberLength < 8; numberLength++, letterLength++) {
-                    path[numberLength - 1] = new Cell(this.getCell().getLetter() - letterLength, this.getCell().getNumber() + numberLength);
-                    if ((this.getCell().getNumber() - numberLength == dist.getLetter()) && (this.getCell().getLetter() + letterLength == dist.getNumber())) {
-                        return copyOf(path, numberLength - 1);
+            if (this.getCell().getNumber() > dist.getNumber() && (this.getCell().getLetter() < dist.getLetter())) {
+                for (int length = 1; length <= 8; length++) {
+                    path[length - 1] = new Cell(this.getCell().getLetter() - length, this.getCell().getNumber() + length);
+                    if ((this.getCell().getNumber() - length == dist.getNumber()) && (this.getCell().getLetter() + length == dist.getLetter())) {
+                        return copyOf(path, length - 1);
                     }
                 }
             }
-            if (getCell().getNumber() < dist.getNumber() && (getCell().getLetter() < dist.getLetter())) {
-                int numberLength = 1;
-                int letterLength = 1;
-                for (; numberLength < 8; numberLength++, letterLength++) {
-                    path[numberLength - 1] = new Cell(this.getCell().getLetter() + letterLength, this.getCell().getNumber() + numberLength);
-                    if ((this.getCell().getNumber() + numberLength == dist.getLetter()) && (this.getCell().getLetter() + letterLength == dist.getNumber())) {
-                        return copyOf(path, numberLength - 1);
+            if (this.getCell().getNumber() < dist.getNumber() && (this.getCell().getLetter() < dist.getLetter())) {
+                for (int length = 1; length <= 8; length++) {
+                    path[length - 1] = new Cell(this.getCell().getLetter() + length, this.getCell().getNumber() + length);
+                    if ((this.getCell().getNumber() + length == dist.getNumber()) && (this.getCell().getLetter() + length == dist.getLetter())) {
+                        return copyOf(path, length - 1);
                     }
                 }
             }

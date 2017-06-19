@@ -35,4 +35,17 @@ public abstract class Figure {
     public Cell getPosition() {
         return this.position;
     }
+
+    /**
+     * Check equality of cells.
+     * @param cell Cell.
+     * @return boolean.
+     */
+    public boolean checkEquality(Cell cell) {
+        if ((this.getPosition().getLetter() == cell.getLetter())
+                && (this.getPosition().getNumber() == cell.getNumber())) {
+            return true;
+        }
+        return false;
+    }
 }
