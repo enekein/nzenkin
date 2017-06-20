@@ -47,4 +47,21 @@ public class ConvertListTest {
         List<Integer> result = convertList.toList(array);
         assertThat(result, is(expected));
     }
+
+    /**
+     * Test method convert.
+     */
+    @Test
+    public void whenListOfIntegerArraysConvertToListOfIntegerThenReturnListOfInteger() {
+        ConvertList convertList = new ConvertList();
+        List<int[]> list = new ArrayList<>();
+        list.add(new int[]{1, 2});
+        list.add(new int[]{3, 4, 5, 6});
+        List<Integer> result = convertList.convert(list);
+        List<Integer> expected = new ArrayList<>();
+        for (int i = 1; i <= 6; i++) {
+            expected.add(i);
+        }
+        assertThat(result, is(expected));
+    }
 }
