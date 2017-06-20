@@ -1,12 +1,16 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
  * @author Nikita Zenkin.
- * @version 1.
+ * @version 2.
  * @since 06.06.2017.
  */
 public class TrackerTest {
@@ -18,7 +22,7 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", "Comment");
         tracker.add(item);
-        assertThat(tracker.findAll()[0], is(item));
+        assertThat(tracker.findAll().get(0), is(item));
     }
     /**
      * test method update(Item) in Tracker.
@@ -31,7 +35,7 @@ public class TrackerTest {
         Item item2 = new Item("test2", "testDescription2", "Comment");
         item2.setId(item.getId());
         tracker.update(item2);
-        assertThat(tracker.findAll()[0], is(item2));
+        assertThat(tracker.findAll().get(0) , is(item2));
     }
     /**
      * test method delete(Item) in Tracker.
@@ -44,7 +48,7 @@ public class TrackerTest {
         tracker.add(item);
         tracker.add(item2);
         tracker.delete(item);
-        assertThat(tracker.findAll()[0], is(item2));
+        assertThat(tracker.findAll().get(0), is(item2));
     }
     /**
      * test method findAll() in Tracker.
@@ -56,7 +60,9 @@ public class TrackerTest {
         Item item2 = new Item("test2", "testDescription2", "Comment");
         tracker.add(item);
         tracker.add(item2);
-        Item[] expected = new Item[]{item, item2};
+        List<Item> expected = new ArrayList<>();
+        expected.add(item);
+        expected.add(item2);
         assertThat(tracker.findAll(), is(expected));
     }
     /**
@@ -81,6 +87,6 @@ public class TrackerTest {
         Item item2 = new Item("test2", "testDescription2", "Comment");
         tracker.add(item);
         tracker.add(item2);
-        assertThat(tracker.findByName(item.getName())[0], is(item));
+        assertThat(tracker.findByName(item.getName()).get(0), is(item));
     }
 }

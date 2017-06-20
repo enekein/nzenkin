@@ -1,27 +1,25 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Nikita Zenkin.
- * @version 1.
+ * @version 2.
  * @since 06.06.2017.
  */
 public class Tracker {
     /**
-     * Array of items.
+     * ArrayList of items.
      */
-    private Item[] items = new Item[100];
-    /**
-     * Number items in array.
-     */
-    private int position = 0;
+    private List<Item> items = new ArrayList<>();
 
     /**
      * Get Items.
-     * @return Item[].
+     * @return List Item.
      */
-    public Item[] getItems() {
+    public List<Item> getItems() {
         return this.items;
     }
 
@@ -31,19 +29,18 @@ public class Tracker {
      * @return Item. Return added item.
      */
     Item add(Item item) {
-        this.items[position++] = item;
-        return items[position];
+        this.items.add(item);
+        return items.get(items.size() - 1);
     }
 
     /**
-     * update existing item.
+     * Update existing item.
      * @param item Item. Item that you want to update.
      */
     void update(Item item) {
-        for (int index = 0; index < this.position; index++) {
-            if (item.getId().equals(items[index].getId())) {
-                items[index] = item;
-                break;
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId().equals(item.getId())) {
+                items.set(index, item);
             }
         }
     }
@@ -53,35 +50,18 @@ public class Tracker {
      * @param item Item. Item that you want ot delete.
      */
     void delete(Item item) {
-        Item[] newItems = new Item[position];
-        for (int index = 0; index < this.position; index++) {
-            if (item.getId().equals(items[index].getId())) {
-                if (index == 0) {
-                    System.arraycopy(items, index + 1, newItems, index, position - 1);
-                    position--;
-                } else if (index == position - 1) {
-                    System.arraycopy(items, 0, newItems, 0, position - 1);
-                    position--;
-                } else {
-                    System.arraycopy(items, 0, newItems, 0, index - 1);
-                    System.arraycopy(items, index + 1, newItems, index, position - 1);
-                    position--;
-                }
-                break;
-            }
-        }
-        this.items = newItems;
+        items.remove(item);
     }
 
     /**
      * Find item by id.
      * @param id String.
-     * @return Utem.
+     * @return Item.
      */
     Item findById(String id) {
         Item result = null;
         for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
+            if (item.getId().equals(id)) {
                 result = item;
                 break;
             }
@@ -94,27 +74,23 @@ public class Tracker {
      * @param name String.
      * @return Item[].
      */
-    Item[] findByName(String name) {
-        Item[] result = new Item[position];
-        int temp = 0;
+    List<Item> findByName(String name) {
+        List<Item> result = new ArrayList<>();
         for (Item item : items) {
-            if (item != null && item.getName().equals(name)) {
-                result[temp] = item;
-                temp++;
+            if (item.getName().equals(name)) {
+                result.add(item);
             }
         }
-        return Arrays.copyOf(result, temp);
+        return result;
     }
 
     /**
      * Find all items.
      * @return Item[]
      */
-    Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int index = 0; index != this.position; index++) {
-            result[index] = this.items[index];
-        }
+    List<Item> findAll() {
+        List<Item> result = new ArrayList<>();
+        result.addAll(items);
         return result;
     }
 }

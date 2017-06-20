@@ -2,9 +2,12 @@ package ru.job4j.tracker;
 
 /**
  * @author Nikita Zenkin.
- * @version 1.
+ * @version 2.
  * @since 08.06.2017.
  */
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Outer non-static class for update item.
@@ -15,7 +18,7 @@ class UpdateItem extends BaseAction {
      * @param name String.
      * @param key int.
      */
-    public UpdateItem(String name, int key) {
+    UpdateItem(String name, int key) {
         super(name, key);
     }
     /**
@@ -43,20 +46,12 @@ class UpdateItem extends BaseAction {
         }
         System.out.println(String.format("Item with ID %s updated", id));
     }
-
-    /**
-     * Info for menu.
-     * @return String.
-     */
-    /*public String info() {
-        return String.format("%s. %s", this.key(), "Update item");
-    }*/
 }
 
 /**
  * Main class of this file.
  */
-public class MenuTracker {
+class MenuTracker {
     /**
      * Input variable.
      */
@@ -73,14 +68,14 @@ public class MenuTracker {
     /**
      * Array of UserAction for menu.
      */
-    private UserAction[] actions = new UserAction[7];
+    private List<UserAction> actions = new ArrayList<>();
     /**
      * Constructor.
      * @param input Input.
      * @param output Output.
      * @param tracker Tracker.
      */
-    public MenuTracker(Input input, Output output, Tracker tracker) {
+    MenuTracker(Input input, Output output, Tracker tracker) {
         this.input = input;
         this.output = output;
         this.tracker = tracker;
@@ -90,21 +85,21 @@ public class MenuTracker {
      * Get length of UserAction array.
      * @return int.
      */
-    public int getUserActionsLength() {
-        return actions.length;
+   int getUserActionsLength() {
+        return this.actions.size();
     }
 
     /**
      * Fill array by actions.
      */
-    public void fillActions() {
-        this.actions[0] = this.new AddItem("Add Item", 0);
-        this.actions[1] = new MenuTracker.ShowItems("Show Item", 1);
-        this.actions[2] = new UpdateItem("Update Item", 2);
-        this.actions[3] = this.new DeleteItem("Delete Item", 3);
-        this.actions[4] = this.new FindById("Find By ID", 4);
-        this.actions[5] = this.new FindByName("Find By Name", 5);
-        this.actions[6] = this.new Exit("Exit", 6);
+    void fillActions() {
+        this.actions.add(0, this.new AddItem("Add Item", 0));
+        this.actions.add(1, new MenuTracker.ShowItems("Show Item", 1));
+        this.actions.add(2, new UpdateItem("Update Item", 2));
+        this.actions.add(3, this.new DeleteItem("Delete Item", 3));
+        this.actions.add(4, this.new FindById("Find By ID", 4));
+        this.actions.add(5, this.new FindByName("Find By Name", 5));
+        this.actions.add(6, this.new Exit("Exit", 6));
     }
 
     /**
@@ -112,15 +107,15 @@ public class MenuTracker {
      * @param key int.
      * @return int.
      */
-    public int select(int key) {
-        this.actions[key].execute(this.input, this.output, this.tracker);
+    int select(int key) {
+        this.actions.get(key).execute(this.input, this.output, this.tracker);
         return key;
     }
 
     /**
      * Show menu.
      */
-    public void show() {
+    void show() {
         for (UserAction action : this.actions) {
             if (action != null) {
                 System.out.println(action.info());
@@ -137,7 +132,7 @@ public class MenuTracker {
          * @param name String.
          * @param key int.
          */
-        public AddItem(String name, int key) {
+        AddItem(String name, int key) {
             super(name, key);
         }
 
@@ -162,14 +157,6 @@ public class MenuTracker {
             tracker.add(new Item(name, desc, comment));
             System.out.println("You added new item!");
         }
-
-        /**
-         * Info for menu.
-         * @return String.
-         */
-        /*public String info() {
-            return String.format("%s. %s", this.key(), "Add new item");
-        }*/
     }
 
     /**
@@ -181,7 +168,7 @@ public class MenuTracker {
          * @param name String.
          * @param key int.
          */
-        public ShowItems(String name, int key) {
+        ShowItems(String name, int key) {
             super(name, key);
         }
         /**
@@ -201,14 +188,6 @@ public class MenuTracker {
         public void execute(Input input, Output output, Tracker tracker) {
             output.printItems(tracker.findAll());
         }
-
-        /**
-         * Info for menu.
-         * @return String.
-         */
-        /*public String info() {
-            return String.format("%s. %s", this.key(), "Show all items");
-        }*/
     }
 
     /**
@@ -220,7 +199,7 @@ public class MenuTracker {
          * @param name String.
          * @param key int.
          */
-        public DeleteItem(String name, int key) {
+        DeleteItem(String name, int key) {
             super(name, key);
         }
         /**
@@ -246,14 +225,6 @@ public class MenuTracker {
             }
             System.out.print(String.format("Item with ID %s deleted %s", id, System.lineSeparator()));
         }
-
-        /**
-         * Info for menu.
-         * @return String.
-         */
-        /*public String info() {
-            return String.format("%s. %s", this.key(), "Delete item");
-        }*/
     }
 
     /**
@@ -265,7 +236,7 @@ public class MenuTracker {
          * @param name String.
          * @param key int.
          */
-        public FindById(String name, int key) {
+        FindById(String name, int key) {
             super(name, key);
         }
         /**
@@ -286,14 +257,6 @@ public class MenuTracker {
             String id = input.ask("Enter id of item that you want to find: ");
             output.printItem(tracker.findById(id));
         }
-
-        /**
-         * Info for menu.
-         * @return String.
-         */
-       /* public String info() {
-            return String.format("%s. %s", this.key(), "Find item by ID");
-        }*/
     }
 
     /**
@@ -305,7 +268,7 @@ public class MenuTracker {
          * @param name String.
          * @param key int.
          */
-        public FindByName(String name, int key) {
+        FindByName(String name, int key) {
             super(name, key);
         }
         /**
@@ -326,14 +289,6 @@ public class MenuTracker {
             String name = input.ask("Enter name of items you want to find: ");
             output.printItems(tracker.findByName(name));
         }
-
-        /**
-         * Info for menu.
-         * @return String.
-         */
-       /* public String info() {
-            return String.format("%s. %s", this.key(), "Find item by name");
-        }*/
     }
 
     /**
@@ -345,7 +300,7 @@ public class MenuTracker {
          * @param name String.
          * @param key int.
          */
-        public Exit(String name, int key) {
+        Exit(String name, int key) {
             super(name, key);
         }
         /**
@@ -363,16 +318,7 @@ public class MenuTracker {
          * @param tracker Tracker.
          */
         public void execute(Input input, Output output, Tracker tracker) {
-
         }
-
-        /**
-         * Info for menu.
-         * @return String.
-         */
-/*        public String info() {
-            return String.format("%s. %s", this.key(), "Exit program");
-        }*/
     }
 
 }

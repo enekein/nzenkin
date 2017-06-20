@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 /**
  * @author Nikita Zenkin.
  * @version 1.
@@ -15,17 +17,15 @@ public class ConsoleOutput implements Output {
      * Print array of items.
      * @param items Item[].
      */
-    public void printItems(Item[] items) {
+    public void printItems(List<Item> items) {
         for (Item item : items) {
-            if (item.getId() != null) {
-                System.out.println(item);
-                String[] temp = item.getComments();
-                System.out.println("Comments:");
-                if (temp != null) {
-                    for (String comment : temp) {
-                        if (comment != null) {
-                            System.out.println(comment);
-                        }
+            System.out.println(item);
+            String[] temp = item.getComments();
+            System.out.println("Comments:");
+            if (temp != null) {
+                for (String comment : temp) {
+                    if (comment != null) {
+                        System.out.println(comment);
                     }
                 }
             }
