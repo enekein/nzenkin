@@ -42,11 +42,11 @@ public class PapersTest {
         listCoins.add(coinsSecondType);
         List<Coins> result = papers.exchangeOptimal(listCoins);
         List<Coins> expected = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < result.size() - 1; i++) {
             expected.add(coins);
             assertThat(result.get(i).getValue(), is(expected.get(i).getValue()));
         }
         expected.add(coinsSecondType);
-        assertThat(result.get(9).getValue(), is(expected.get(9).getValue()));
+        assertThat(result.get(result.size() - 1).getValue(), is(expected.get(result.size() - 1).getValue()));
     }
 }
