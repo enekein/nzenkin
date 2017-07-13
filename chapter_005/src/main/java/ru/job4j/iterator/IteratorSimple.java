@@ -30,7 +30,24 @@ public class IteratorSimple implements Iterator {
      * @return boolean.
      */
     public boolean hasNext() {
-        return values.length > index;
+        int count = 1;
+        while (index + count < values.length) {
+            if (values[index + count] > 1) {
+                for (int i = 2; i <= values[index + count]; i++) {
+                    if (values[index + count] == i) {
+                        return true;
+                    }
+                    if (values[index] % i == 0) {
+                        break;
+                    }
+
+                }
+            } else if (values[index + count] == 1 || values[index + count] == 0) {
+                return true;
+            }
+            count++;
+        }
+        return false;
     }
 
     /**
