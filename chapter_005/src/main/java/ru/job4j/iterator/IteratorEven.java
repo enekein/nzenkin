@@ -30,7 +30,7 @@ public class IteratorEven implements Iterator {
      * @return boolean.
      */
     public boolean hasNext() {
-        return values.length > index;
+        return (values.length > index && values[index] % 2 == 0);
     }
 
     /**

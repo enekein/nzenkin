@@ -11,14 +11,14 @@ import static org.junit.Assert.assertThat;
  */
 public class IteratorEvenTest {
     /**
-     * Test method boolean hasNext().
-     */
+            * Test method boolean hasNext().
+            */
     @Test
     public void whenUseHasNextForArrayWithNextValueThenReturnTrue() {
         IteratorEven it = new IteratorEven(
                 new int[] {1, 2, 3}
         );
-        assertThat(it.hasNext(), is(true));
+        assertThat(it.hasNext(), is(false));
     }
 
     /**
