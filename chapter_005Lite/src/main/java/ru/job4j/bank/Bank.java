@@ -99,18 +99,19 @@ class Bank {
         accountsSrc.remove(srcAccount);
         accountsDst.remove(dstAccount);
 
-        if (amount > srcAccount.getValue() || accountsSrc.contains(srcAccount) || accountsDst.contains(dstAccount)) {
-            return false;
+        if (amount < srcAccount.getValue() || accountsSrc.contains(srcAccount) || accountsDst.contains(dstAccount)) {
+
+            srcAccount.transfer(amount * (-1.00));
+            dstAccount.transfer(amount);
+
+            accountsSrc.add(srcAccount);
+            accountsDst.add(dstAccount);
+
+            bills.put(srcUser, accountsSrc);
+            bills.put(dstUser, accountsDst);
+
+            return true;
         }
-
-        srcAccount.transfer(amount * (-1.00));
-        dstAccount.transfer(amount);
-
-        accountsSrc.add(srcAccount);
-        accountsDst.add(dstAccount);
-
-        bills.put(srcUser, accountsSrc);
-        bills.put(dstUser, accountsDst);
-        return true;
+        return false;
     }
 }
