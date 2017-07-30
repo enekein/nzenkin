@@ -1,13 +1,14 @@
 package ru.job4j.generics;
 
-import java.util.Arrays;
-
 /**
  * @author Nikita Zenkin.
  * @version 1.
  * @since 19.07.2017.
  */
 
+/**
+ * @param <E> generic.
+ */
 class SimpleArray<E> {
     /**
      * Array of objects.
@@ -75,5 +76,13 @@ class SimpleArray<E> {
      */
     void update(E value, int position) {
         objects[position] = value;
+    }
+
+    /**
+     * Get index.
+     * @return int.
+     */
+    int getIndex() {
+        return this.index;
     }
 }
