@@ -6,7 +6,7 @@ package ru.job4j.generics;
  * @since 19.07.2017.
  */
 
-public abstract class Base {
+abstract class Base {
     /**
      * Getter for Id.
      * @return String.

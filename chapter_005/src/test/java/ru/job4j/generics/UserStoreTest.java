@@ -20,7 +20,7 @@ public class UserStoreTest {
         UserStore userStore = new UserStore(user);
         User user2 = new User("321", "321", "321");
         userStore.add(user2);
-        assertThat(userStore.getById(1), is(user2));
+        assertThat(userStore.getById(1).getId(), is(user2.getId()));
     }
     /**
      * Test method update(Role).

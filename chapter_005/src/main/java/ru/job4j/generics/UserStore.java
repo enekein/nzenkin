@@ -9,18 +9,13 @@ package ru.job4j.generics;
 /**
  * @param <User> extends Base.
  */
-public class UserStore<User extends Base> implements Store<User> {
-    /**
-     * Array for storage objects.
-     */
-    private SimpleArray<User> userSimpleArray = new SimpleArray<>(10);
-
+public class UserStore<User extends Base> extends Store<User> {
     /**
      * Constructor.
      * @param user User.
      */
     UserStore(User user) {
-        userSimpleArray.add(user);
+        getSimpleArray().add(user);
     }
 
     /**
@@ -29,38 +24,6 @@ public class UserStore<User extends Base> implements Store<User> {
      * @return User.
      */
     public User getById(int index) {
-        return userSimpleArray.get(index);
-    }
-
-    /**
-     * Add new user.
-     * @param user User.
-     */
-    public void add(User user) {
-        userSimpleArray.add(user);
-    }
-
-    /**
-     * Update existing user.
-     * @param user User.
-     */
-    public void update(User user) {
-        for (int i = 0; i < userSimpleArray.getIndex(); i++) {
-            if (userSimpleArray.get(i).getId().equals(user.getId()))  {
-                userSimpleArray.update(user, i);
-            }
-        }
-    }
-
-    /**
-     * Delete existing user.
-     * @param user User.
-     */
-    public void delete(User user) {
-        for (int i = 0; i < userSimpleArray.getIndex(); i++) {
-            if (userSimpleArray.get(i).equals(user))  {
-                userSimpleArray.delete(userSimpleArray.get(i));
-            }
-        }
+        return getSimpleArray().get(index);
     }
 }

@@ -10,18 +10,14 @@ package ru.job4j.generics;
  * @param <Role> extends Base.
  */
 
-public class RoleStore<Role extends Base> implements Store<Role> {
-    /**
-     * Array for storage roles.
-     */
-    private SimpleArray<Role> roleSimpleArray = new SimpleArray<>(10);
+public class RoleStore<Role extends Base> extends Store<Role> {
 
     /**
      * Constructor.
      * @param role Role.
      */
     RoleStore(Role role) {
-        roleSimpleArray.add(role);
+        getSimpleArray().add(role);
     }
 
     /**
@@ -30,38 +26,6 @@ public class RoleStore<Role extends Base> implements Store<Role> {
      * @return Role.
      */
     public Role getById(int index) {
-        return roleSimpleArray.get(index);
-    }
-
-    /**
-     * Add new role.
-     * @param role Role.
-     */
-    public void add(Role role) {
-        roleSimpleArray.add(role);
-    }
-
-    /**
-     * Update existing role.
-     * @param role Role.
-     */
-    public void update(Role role) {
-        for (int i = 0; i < roleSimpleArray.getIndex(); i++) {
-            if (roleSimpleArray.get(i).getId().equals(role.getId()))  {
-                roleSimpleArray.update(role, i);
-            }
-        }
-    }
-
-    /**
-     * Delete existing role.
-     * @param role Role.
-     */
-    public void delete(Role role) {
-        for (int i = 0; i < roleSimpleArray.getIndex(); i++) {
-            if (roleSimpleArray.get(i).equals(role))  {
-                roleSimpleArray.delete(roleSimpleArray.get(i));
-            }
-        }
+        return getSimpleArray().get(index);
     }
 }
