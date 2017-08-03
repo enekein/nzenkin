@@ -9,7 +9,10 @@ import java.util.Iterator;
  * @since 19.07.2017.
  */
 
-public class DynamicArray<E> implements SimpleContainer<E>{
+/**
+ * @param <E> generic.
+ */
+public class DynamicArray<E> implements SimpleContainer<E> {
     /**
      * Array of objects.
      */
@@ -20,10 +23,10 @@ public class DynamicArray<E> implements SimpleContainer<E>{
     private int index = 0;
 
     /**
-     * Cinstructor.
+     * Constructor.
       * @param size int.
      */
-    DynamicArray(int size) {
+    DynamicArray(final int size) {
         container = new Object[size];
     }
 
@@ -31,7 +34,7 @@ public class DynamicArray<E> implements SimpleContainer<E>{
      * Add new element.
      * @param value E.
      */
-    public void add(E value) {
+    public void add(final E value) {
         if (container.length == index) {
             extendContainer();
         }
@@ -47,11 +50,26 @@ public class DynamicArray<E> implements SimpleContainer<E>{
 
     /**
      * Get element.
-     * @param index int.
+     * @param indexElement int.
      * @return E.
      */
-    public E get(int index) {
-        return (E) container[index];
+    final E get(final int indexElement) {
+        return (E) container[indexElement];
+    }
+
+    /**
+     * Get element.
+     * @param e E.
+     * @return E.
+     */
+    @Override
+    public E get(final E e) {
+        for (Object obj : container) {
+            if (obj.equals(e)) {
+                return (E) obj;
+            }
+        }
+        return null;
     }
 
     /**
@@ -72,7 +90,8 @@ public class DynamicArray<E> implements SimpleContainer<E>{
              */
             @Override
             public boolean hasNext() {
-                return ((currentIndex < container.length) && (container[currentIndex] != null));
+                return ((currentIndex < container.length)
+                        && (container[currentIndex] != null));
             }
 
             /**
