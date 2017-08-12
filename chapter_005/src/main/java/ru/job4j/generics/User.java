@@ -22,23 +22,24 @@ public class User extends Base {
 
     /**
      * Constructor.
-     * @param name String.
-     * @param password String.
-     * @param id String.
+     * @param nameOfUser String.
+     * @param passwordOfUser String.
+     * @param idOfUser String.
      */
-    User(String name, String password, String id) {
-        this.name = name;
-        this.password = password;
-        setId(id);
+    User(final String nameOfUser, final String passwordOfUser,
+         final String idOfUser) {
+        this.name = nameOfUser;
+        this.password = passwordOfUser;
+        setId(idOfUser);
     }
 
     /**
      * Setter for Id.
-     * @param id String.
+     * @param idOfUser String.
      */
     @Override
-    public void setId(String id) {
-        this.id = id;
+    public void setId(final String idOfUser) {
+        this.id = idOfUser;
     }
 
     /**

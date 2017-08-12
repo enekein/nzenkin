@@ -17,7 +17,7 @@ public class RoleStoreTest {
     @Test
     public void whenTestAddNewRoleAndGetByIdMethods() {
         Role role = new Role("123", "123");
-        RoleStore roleStore = new RoleStore(role);
+        RoleStore roleStore = new RoleStore(role, 10);
         Role role2 = new Role("321", "321");
         roleStore.add(role2);
         assertThat(roleStore.getById(1), is(role2));
@@ -28,7 +28,7 @@ public class RoleStoreTest {
     @Test
     public void whenUpdateExistingRole() {
         Role role = new Role("123", "123");
-        RoleStore roleStore = new RoleStore(role);
+        RoleStore roleStore = new RoleStore(role, 10);
         Role role2 = new Role("321", "123");
         roleStore.update(role2);
         assertThat(roleStore.getById(0).getName(), is(role2.getName()));
@@ -40,7 +40,7 @@ public class RoleStoreTest {
     @Test
     public void whenDeleteExistingRole() {
         Role role = new Role("123", "123");
-        RoleStore roleStore = new RoleStore(role);
+        RoleStore roleStore = new RoleStore(role, 10);
         Role role2 = new Role("321", "223");
         roleStore.add(role2);
         roleStore.delete(role);

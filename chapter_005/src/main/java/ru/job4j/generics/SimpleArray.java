@@ -4,9 +4,7 @@ package ru.job4j.generics;
  * @author Nikita Zenkin.
  * @version 1.
  * @since 19.07.2017.
- */
-
-/**
+ *
  * @param <E> generic.
  */
 class SimpleArray<E> {
@@ -23,7 +21,7 @@ class SimpleArray<E> {
      * Constructor.
      * @param size int.
      */
-    SimpleArray(int size) {
+    SimpleArray(final int size) {
         this.objects = new Object[size];
     }
 
@@ -31,7 +29,7 @@ class SimpleArray<E> {
      * Add new element to array.
      * @param value E.
      */
-    void add(E value) {
+    void add(final E value) {
         this.objects[index++] = value;
     }
 
@@ -40,7 +38,7 @@ class SimpleArray<E> {
      * @param position int.
      * @return E.
      */
-    E get(int position) {
+    E get(final int position) {
         return (E) this.objects[position];
     }
 
@@ -48,7 +46,7 @@ class SimpleArray<E> {
      * Delete element from array.
      * @param value E.
      */
-    void delete(E value) {
+    void delete(final E value) {
         for (int i = 0; i < index; i++) {
             if (objects[i].equals(value)) {
                 Object[] newObjects = new Object[--index];
@@ -74,7 +72,7 @@ class SimpleArray<E> {
      * @param value E
      * @param position int.
      */
-    void update(E value, int position) {
+    void update(final E value, final int position) {
         objects[position] = value;
     }
 

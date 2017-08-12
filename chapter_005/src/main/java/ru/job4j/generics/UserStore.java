@@ -4,18 +4,18 @@ package ru.job4j.generics;
  * @author Nikita Zenkin.
  * @version 1.
  * @since 25.07.2017.
- */
-
-/**
+ *
  * @param <User> extends Base.
  */
-public class UserStore<User extends Base> extends Store<User> {
+class UserStore<User extends Base> extends BaseStore implements Store<User> {
     /**
      * Constructor.
      * @param user User.
+     * @param size int.
      */
-    UserStore(User user) {
-        getSimpleArray().add(user);
+    UserStore(final User user, final int size) {
+        super(size);
+        super.add(user);
     }
 
     /**
@@ -23,7 +23,7 @@ public class UserStore<User extends Base> extends Store<User> {
      * @param index int.
      * @return User.
      */
-    public User getById(int index) {
-        return getSimpleArray().get(index);
+    public User getById(final int index) {
+        return (User) getSimpleArray().get(index);
     }
 }

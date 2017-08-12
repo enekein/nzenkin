@@ -18,28 +18,27 @@ public class Role extends Base {
 
     /**
      * Constructor.
-     * @param name String.
-     * @param id String.
+     * @param nameOfRole String.
+     * @param idOfRole String.
      */
-    Role(String name, String id) {
-        this.name = name;
-        setId(id);
+    Role(final String nameOfRole, final String idOfRole) {
+        this.name = nameOfRole;
+        setId(idOfRole);
     }
 
     /**
      * Setter for Id.
-     * @param id String.
+     * @param idOfRole String.
      */
     @Override
-    public void setId(String id) {
-        this.id = id;
+    public void setId(final String idOfRole) {
+        this.id = idOfRole;
     }
 
     /**
      * Getter for Id.
      * @return String.
      */
-    @Override
     public String getId() {
         return this.id;
     }
@@ -48,6 +47,7 @@ public class Role extends Base {
      * Getter for name.
      * @return String.
      */
+    @Override
     String getName() {
         return this.name;
     }
