@@ -7,7 +7,7 @@ package ru.job4j.generics;
  *
  * @param <T> generic.
  */
-class BaseStore<T> {
+class BaseStore<T extends Base> {
 
     /**
      * Array for storage objects.
@@ -36,7 +36,7 @@ class BaseStore<T> {
      */
     void update(final T t) {
         for (int i = 0; i < simpleArray.getIndex(); i++) {
-            if (simpleArray.get(i).equals(t)) {
+            if (simpleArray.get(i).getId().equals(t.getId())) {
                 simpleArray.update(t, i);
             }
         }
