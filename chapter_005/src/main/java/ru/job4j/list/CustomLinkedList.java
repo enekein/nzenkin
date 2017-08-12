@@ -7,12 +7,20 @@ import java.util.Iterator;
  * @author Nikita Zenkin.
  * @version 1.
  * @since 22.07.2017.
+ *
+ * @param <E> generic.
  */
 
-public class CustomLinkedList<E> implements SimpleContainer<E>{
+public class CustomLinkedList<E> implements SimpleContainer<E> {
 
+    /**
+     * Header of list.
+     */
     private Element headerElement;
 
+    /**
+     * Array of elements.
+     */
     private Element[] elements;
 
     /**
@@ -22,8 +30,10 @@ public class CustomLinkedList<E> implements SimpleContainer<E>{
 
     /**
      * Constructor.
+     * @param size int.
+     * @param e E.
      */
-    CustomLinkedList(E e, int size) {
+    CustomLinkedList(final E e, final int size) {
         headerElement = new Element();
         headerElement.setContainer(e);
         elements = new Element[size];
@@ -34,12 +44,13 @@ public class CustomLinkedList<E> implements SimpleContainer<E>{
      * Add new element.
      * @param value E.
      */
-    public void add(E value) {
+    public void add(final E value) {
         if (elements.length == index) {
             extendContainer();
         }
         for (Element element : elements) {
             if (element.getNext() == null) {
+                elements[index] = new Element();
                 element.setNext(elements[index]);
                 break;
             }
@@ -59,18 +70,23 @@ public class CustomLinkedList<E> implements SimpleContainer<E>{
      * @param e E.
      * @return E.
      */
-    public E get(E e) {
+    public E get(final E e) {
         for (int i = 0; i < index; i++) {
-            if (e.equals(elements[i])) {
+            if (e.equals(elements[i].getContainer())) {
                 return (E) elements[i].getContainer();
             }
         }
         return null;
     }
 
-    private int getIndex(E e) {
+    /**
+     * Get index of element.
+     * @param e E.
+     * @return int.
+     */
+    private int getIndex(final E e) {
         for (int i = 0; i < index; i++) {
-            if (e.equals(elements[i])) {
+            if (e.equals(elements[i].getContainer())) {
                 return i;
             }
         }
@@ -104,9 +120,10 @@ public class CustomLinkedList<E> implements SimpleContainer<E>{
              */
             @Override
             public E next() {
+                Element result = elements[currentIndex];
                 Element element = elements[currentIndex].getNext();
                 currentIndex = getIndex((E) element.getContainer());
-                return (E) element.getContainer();
+                return (E) result.getContainer();
             }
         };
     }
