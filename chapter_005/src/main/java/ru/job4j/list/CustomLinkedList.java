@@ -26,7 +26,6 @@ public class CustomLinkedList<E> implements SimpleContainer<E> {
     /**
      * Constructor.
      * @param size int.
-     * @param e E.
      */
     CustomLinkedList(int size) {
         elements = new Element[size];
