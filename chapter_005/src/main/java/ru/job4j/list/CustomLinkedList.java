@@ -14,11 +14,6 @@ import java.util.Iterator;
 public class CustomLinkedList<E> implements SimpleContainer<E> {
 
     /**
-     * Header of list.
-     */
-    private Element headerElement;
-
-    /**
      * Array of elements.
      */
     private Element[] elements;
@@ -31,13 +26,9 @@ public class CustomLinkedList<E> implements SimpleContainer<E> {
     /**
      * Constructor.
      * @param size int.
-     * @param e E.
      */
-    CustomLinkedList(final E e, final int size) {
-        headerElement = new Element();
-        headerElement.setContainer(e);
+    CustomLinkedList(int size) {
         elements = new Element[size];
-        elements[index++] = headerElement;
     }
 
     /**
@@ -45,9 +36,7 @@ public class CustomLinkedList<E> implements SimpleContainer<E> {
      * @param value E.
      */
     public void add(final E value) {
-        if (elements.length == index) {
-            extendContainer();
-        }
+        checkElementsLength();
         for (Element element : elements) {
             if (element.getNext() == null) {
                 elements[index] = new Element();
@@ -59,10 +48,12 @@ public class CustomLinkedList<E> implements SimpleContainer<E> {
     }
 
     /**
-     * Extend length of container.
+     * Check length of elements array.
      */
-    private void extendContainer() {
-        elements = Arrays.copyOf(elements, elements.length * 2);
+    private void checkElementsLength() {
+        if (elements.length == index) {            
+            elements = Arrays.copyOf(elements, elements.length * 2);        
+        }
     }
 
     /**
