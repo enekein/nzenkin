@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
  * @author Nikita Zenkin.
- * @version 1.
+ * @version 2.
  * @since 22.07.2017.
  *
  * @param <E> generic.
@@ -27,7 +27,7 @@ public class CustomLinkedList<E> implements SimpleContainer<E> {
      * Constructor.
      * @param size int.
      */
-    CustomLinkedList(int size) {
+    CustomLinkedList(final int size) {
         elements = new Element[size];
     }
 
@@ -51,9 +51,24 @@ public class CustomLinkedList<E> implements SimpleContainer<E> {
      * Check length of elements array.
      */
     private void checkElementsLength() {
-        if (elements.length == index) {            
-            elements = Arrays.copyOf(elements, elements.length * 2);        
+        if (elements.length == index) {
+            elements = Arrays.copyOf(elements, elements.length * 2);
         }
+    }
+
+    /**
+     * Remove element from container and return it.
+     * Needed for Queue and Stack.
+     * @param e E.
+     * @return E.
+     */
+    E remove(final E e) {
+        for (Element element : elements) {
+            if (element.getNext().equals(e)) {
+                element.setNext(null);
+            }
+        }
+        return e;
     }
 
     /**

@@ -17,7 +17,7 @@ public class CustomLinkedListTest {
      */
     @Test
     public void whenGetFirstElement() {
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(4, 10);
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(10);
         assertThat(customLinkedList.get(4), is(4));
     }
 
@@ -26,7 +26,7 @@ public class CustomLinkedListTest {
      */
     @Test
     public void whenAddNewElement() {
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(4, 10);
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(10);
         customLinkedList.add(5);
         assertThat(customLinkedList.get(5), is(5));
     }
@@ -36,7 +36,7 @@ public class CustomLinkedListTest {
      */
     @Test
     public void whenChooseNextElement() {
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(4, 10);
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(10);
         customLinkedList.add(5);
         customLinkedList.add(6);
         Iterator<Integer> it = customLinkedList.iterator();
@@ -49,7 +49,7 @@ public class CustomLinkedListTest {
      */
     @Test
     public void whenCheckNextElement() {
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(4, 10);
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>(10);
         customLinkedList.add(5);
         Iterator<Integer> it = customLinkedList.iterator();
         assertThat(it.hasNext(), is(true));
